@@ -1,0 +1,17 @@
+<input type="radio" name="tabs" id="tab1" [checked]="tabChecked" [routerLink]="['/tv-shows/']" />
+<label for="tab1">TV Shows</label>
+
+<input type="radio" name="tabs" id="tab2" [routerLink]="['/movies/']" />
+<label for="tab2">Movies</label>
+
+<div class="search">
+  <app-search ></app-search>
+</div>
+
+
+<!-- <div class="tab content1">
+  <app-tv-show></app-tv-show>
+</div>
+<div class="tab content2">
+  <app-movie></app-movie>
+</div> -->

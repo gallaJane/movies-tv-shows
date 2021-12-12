@@ -1,0 +1,40 @@
+.tab-wrapper{
+  padding:12px;
+}
+input { display: none; }
+input + label { display: inline-block }
+
+input ~ .tab { display: none }
+#tab1:checked ~ .tab.content1,
+#tab2:checked ~ .tab.content2 { display: block; padding-top: 30px;}
+
+input + label {
+  background: transparent;
+  border-radius: 10px;
+  border-width: 0;
+  color: rgba(255, 255, 255, 0.35);
+  padding: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bold;
+}
+input:checked + label {
+  background: linear-gradient(#0094F4, #0060E3);
+  border-radius: 10px;
+  border-width: 0;
+  color: #fff;
+  padding: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  font-weight: bold;
+
+}
+input ~ .tab {
+  padding: 12px;
+}
+
+.search {
+  padding-top: 35px;
+  margin-right: 15px;
+  padding-bottom: 15px;
+}

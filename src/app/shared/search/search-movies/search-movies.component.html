@@ -1,0 +1,24 @@
+  <div class="card-columns">
+
+    <div *ngFor="let movie of movies" class="img-card iCard-style2" [routerLink]="['/movies/'+movie.id]" routerLinkActive="active">
+      <div class="card-content">
+          <div class="card-image">
+            <img *ngIf="movie.poster_path" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path }}" >
+            <img *ngIf="!movie.poster_path" src="https://www.genesisglobalschool.edu.in/wp-content/uploads/2016/09/noimage.jpg" >
+          </div>
+          
+          <span class="card-title">{{movie.title}}</span>
+          
+          <div class="card-text">
+              <p class="card-content">
+                <img src="./../../../assets/img/star.svg" class="star-icon" alt="">
+               
+                {{ movie.vote_average }}
+              </p>
+          </div>
+          
+      </div>
+  
+    </div> 
+  
+   </div>

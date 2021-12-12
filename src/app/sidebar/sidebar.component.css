@@ -1,0 +1,122 @@
+
+.avatar {
+    display: flex;
+    background: rgba(0, 0, 0, 0.1);
+    padding: 4em 1.5em;
+    text-align: center;
+    border-radius: 25px;
+    background: linear-gradient(#0094F4, #0060E3);
+    margin-left: 40px;
+  }
+ .avatar img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.2);
+  }
+ .avatar h3 {
+    font-weight: bold;
+    margin-bottom: 0;
+    margin-left: 20px;
+    color: #fff;
+  }
+ 
+
+  .sidebar-menu {
+    height: 100vh;
+    font-size: 1em;
+  }
+  
+  .nav {
+    position: relative;
+    text-align: center;
+    top: 20%;
+    transform: translateY(-50%);
+    font-weight: bold;
+  }
+  
+  .nav ul {
+    list-style: none;
+  }
+  .nav ul li {
+    position: relative;
+    margin: 3.2em 0;
+  }
+  .nav ul li a {
+    line-height: 3.5em;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.35);
+    display: block;
+    transition: all ease-out 300ms;
+    border-radius: 15px;
+  }
+  .nav ul li.active a {
+    color: white;
+    background: #262639;
+    border-radius: 15px;
+  }
+  .nav ul li:not(.active)::after {
+    opacity: 0.2;
+  }
+  .nav ul li:not(.active):hover a {
+    color: #fff;
+    border-radius: 15px;
+  }
+
+  
+  @media screen and (max-width: 900px) and (min-width: 400px) {
+
+
+  .avatar {
+      padding: 0.5em;
+      position: relative;
+    }
+  .avatar img {
+      width: 60px;
+    }
+ .avatar h2 {
+      opacity: 0;
+      position: absolute;
+      top: 50%;
+      left: 100px;
+      margin: 0;
+      min-width: 200px;
+      border-radius: 4px;
+      background: rgba(0, 0, 0, 0.4);
+      transform: translate3d(-20px, -50%, 0);
+      transition: all 0.15s ease-in-out;
+    }
+     .avatar:hover h2 {
+      opacity: 1;
+      transform: translate3d(0px, -50%, 0);
+    }
+
+  }
+
+  
+
+  nav li a:hover{ border-bottom: 0px;  border-radius: 15px;}
+nav li:first-child a{ border-left: 5px solid  #0060E3; }
+nav li:nth-child(2) a{ border-left: 5px solid  #0060E3; }
+nav li:nth-child(3) a{ border-left: 5px solid  #0060E3; }
+nav li:last-child a{ border-left: 5px solid  #0060E3; }
+
+nav li a:after { 
+  content: "";
+  height: 100%; 
+  left: 0; 
+  top: 0; 
+  width: 0px;  
+  position: absolute; 
+  transition: all 0.3s ease 0s; 
+  -webkit-transition: all 0.3s ease 0s; 
+  z-index: -1;
+  border-radius: 15px;
+}
+
+nav li a:hover:after{ width: 100%; color: #fff; border-radius: 15px;}
+nav li:first-child a:after{ background:  #0060E3; }
+nav li:nth-child(2) a:after{ background:  #0060E3; }
+nav li:nth-child(3) a:after{ background:  #0060E3; }
+nav li:last-child a:after{ background:  #0060E3; }

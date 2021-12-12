@@ -1,0 +1,12 @@
+<div class="search">
+    <input 
+    #searchTerm
+    type="text" 
+    class="searchTerm"
+    (keyup.enter)="search(searchTerm.value)"
+    (blur)="search(searchTerm.value); searchTerm.value=''" 
+    placeholder="What are you looking for?">
+    <button type="submit" class="searchButton" (click)="search(searchTerm.value)">
+      <img class="src-img" src="../../../assets/img/search-icon.svg" alt="">
+   </button>
+ </div>
