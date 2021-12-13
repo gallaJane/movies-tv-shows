@@ -13,5 +13,7 @@ export class TVShowListComponent implements OnInit {
   constructor() {
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log("We are in TV Show List Component");
+  }
 }

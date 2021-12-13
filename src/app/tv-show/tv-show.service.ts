@@ -12,7 +12,6 @@ import { TVShow } from './../shared/tv-show';
 export class TVShowService {
   private apiKey: string = "4297c64a33343fef95d06afcefbf8590";
   private urlTVShowDB: string = "https://api.themoviedb.org/3/tv";
-  private searchUrl: string = "https://api.themoviedb.org/3/search/movie";
 
   constructor(private http: HttpClient) { }
 
