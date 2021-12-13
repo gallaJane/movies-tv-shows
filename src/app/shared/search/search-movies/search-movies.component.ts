@@ -29,11 +29,6 @@ export class SearchMoviesComponent implements OnInit {
   }
 
   ngOnInit() {
-    localStorage.getItem('movies');
-    var moviesArray  = localStorage.getItem('movies');
-    if (moviesArray !== null && typeof moviesArray === "string") {
-      this.movies = JSON.parse(moviesArray);   // deserializing here
-  }
     // this.subscription =this.searchService.receievedMessage().subscribe(
     //   (some: any) => {
     //     console.log('Value is ' + some);
@@ -42,20 +37,18 @@ export class SearchMoviesComponent implements OnInit {
     //     console.log(error);
     //   }
     // );
-
     this.route.params.subscribe(
       (params: any) => {
+        localStorage.getItem('movies');
+        var moviesArray  = localStorage.getItem('movies');
+        if (moviesArray !== null && typeof moviesArray === "string") {
+          this.movies = JSON.parse(moviesArray);   // deserializing here
+      }
         this.query = params['query'];
         this.page = 1;
       });
 
-
-
   }
-
-
-
-
 
   onSelect(movie: Movie) {
     this.router.navigate(['./../movie', movie.id]);
