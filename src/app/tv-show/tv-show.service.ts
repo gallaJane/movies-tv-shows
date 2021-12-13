@@ -18,7 +18,6 @@ export class TVShowService {
   getTopTVShows(): Observable<TVShow[]> {
     let tvShowsUrl = `${this.urlTVShowDB}/top_rated?api_key=${this.apiKey}&language=en-US`;
     return this.http.get(tvShowsUrl).pipe(map((res: any) => {
-      console.log(res);
       return res.results;
     }));
   }
@@ -26,7 +25,6 @@ export class TVShowService {
   getDetails(id : number) {
     let detailsUrl = `${this.urlTVShowDB}/${id}?api_key=${this.apiKey}&language=en-US`;
     return this.http.get(detailsUrl).pipe(map((res: any) => {
-      console.log(res);
       return res;
     }));
   }
@@ -34,7 +32,6 @@ export class TVShowService {
   getVideo(id : number): Observable<any> {
     let videoUrl = `${this.urlTVShowDB}/${id}/videos?api_key=${this.apiKey}&language=en-US`;
     return this.http.get(videoUrl).pipe(map((res: any) => {
-      console.log(res);
       return res;
     }));
   }

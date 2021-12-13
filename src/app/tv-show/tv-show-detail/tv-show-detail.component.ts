@@ -30,9 +30,7 @@ export class TVShowDetailComponent implements OnInit {
           this.tvShowService.getVideo(params.id).subscribe((video:any) =>{
             this.videoInfo = video.results[0];
             this.srcUrl= `https://www.youtube.com/embed/${this.videoInfo.key}`;
-            console.log(this.videoInfo)
           })
-          console.log(this.selectedTVShow);
           this.isReady=true;
         })
       });

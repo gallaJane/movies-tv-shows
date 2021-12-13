@@ -19,7 +19,6 @@ export class MovieService {
   getTopMovies(): Observable<Movie[]> {
     let moviesUrl = `${this.urlMovieDB}/top_rated?api_key=${this.apiKey}&language=en-US`;
     return this.http.get(moviesUrl).pipe(map((res: any) => {
-      console.log(res);
       return res.results;
     }));
   }
@@ -28,7 +27,6 @@ export class MovieService {
   getDetails(id : number): Observable<any> {
     let detailsUrl = `${this.urlMovieDB}/${id}?api_key=${this.apiKey}&language=en-US`;
     return this.http.get(detailsUrl).pipe(map((res: any) => {
-      console.log(res);
       return res;
     }));
   }
@@ -36,7 +34,6 @@ export class MovieService {
   getVideo(id : number): Observable<any> {
     let videoUrl = `${this.urlMovieDB}/${id}/videos?api_key=${this.apiKey}&language=en-US`;
     return this.http.get(videoUrl).pipe(map((res: any) => {
-      console.log(res);
       return res;
     }));
   }

@@ -15,7 +15,6 @@ import { Observable } from 'rxjs';
 export class SearchMoviesComponent implements OnInit {
   page!: number;
   query!: string;
-  something = new Observable<Movie>();
   movies!: Movie[];
 
   subscription!: Subscription;
@@ -29,26 +28,27 @@ export class SearchMoviesComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router
   ) {
-    this.subscription =this.searchService.receievedMessage().subscribe(
-        (some: any) => {
-          this.movies = some;
-          console.log('Value is ' + this.movies);
-        },
-        (error: any) => {
-          console.log(error);
-        }
-      );
+
   }
 
   ngOnInit() {
+    this.subscription =this.searchService.receievedMessage()
+    .subscribe(
+      (some: any) => {
+        this.movies = some;
+        console.log('Value is ' + this.movies);
+         this.route.params.subscribe(
+           (params: any) => {
+             this.query = params['query'];
+             this.page = 1;
+           });
+      },
+      (error: any) => {
+        console.log(error);
+      }
+    );
 
-    let neka = this.something;
-    console.log('Triggier')
-    this.route.params.subscribe(
-      (params: any) => {
-        this.query = params['query'];
-        this.page = 1;
-      });
+
 
   }
 

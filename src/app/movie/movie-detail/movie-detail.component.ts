@@ -29,9 +29,7 @@ export class MovieDetailComponent implements OnInit {
           this.movieService.getVideo(params.id).subscribe((video:any) =>{
             this.videoInfo = video.results[0];
             this.srcUrl= `https://www.youtube.com/embed/${this.videoInfo.key}`;
-            console.log(this.videoInfo)
           })
-          console.log(this.selectedMovie);
           this.isReady=true;
         })
       });

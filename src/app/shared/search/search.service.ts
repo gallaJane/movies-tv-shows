@@ -15,7 +15,8 @@ export class SearchService {
   private searchTVShowUrl = 'https://api.themoviedb.org/3/search/tv';
   private apiKey = '4297c64a33343fef95d06afcefbf8590';
 
-private subject = new Subject<any>();
+private subject = new BehaviorSubject('');
+movies!:any;
 
   constructor (private http: HttpClient) {
     
@@ -32,7 +33,9 @@ private subject = new Subject<any>();
   searchMovies(query: string, page: number) { 
     let searchUrl = `${this.searchMovieUrl}?api_key=${this.apiKey}&language=en-US&query=${query}&page=${page}`;
     return this.http.get(searchUrl).pipe(map((res: any) => {
-        console.log(res);
+      this.movies = res.results;
+      this.sendMessage(this.movies);
+
         return res;
       }));
   }
@@ -40,7 +43,7 @@ private subject = new Subject<any>();
   searchTVShows(query: string, page: number) {
     let searchUrl = `${this.searchTVShowUrl}?api_key=${this.apiKey}&language=en-US&query=${query}&page=${page}`;
     return this.http.get(searchUrl).pipe(map((res: any) => {
-        console.log(res);
+
         return res.results;
       }));
   }

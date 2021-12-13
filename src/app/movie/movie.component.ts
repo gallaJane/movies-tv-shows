@@ -26,10 +26,8 @@ export class MovieComponent implements OnInit {
 
   getTopMovies() {
     this.movieService.getTopMovies().subscribe((data: any) => {
-      console.log(data);
       this.topRatedMovies = data;
       this.topRatedMovies = data.slice(0, 10);
-      console.log(this.topRatedMovies);
     });
   }
   

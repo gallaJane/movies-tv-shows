@@ -23,10 +23,8 @@ export class TVShowComponent implements OnInit {
 
   getTopTVShows() {
     this.tvShowService.getTopTVShows().subscribe((data: any) => {
-      console.log(data);
       this.topRatedTVShows = data;
       this.topRatedTVShows = data.slice(0, 10);
-      console.log(this.topRatedTVShows);
     });
   }
 }

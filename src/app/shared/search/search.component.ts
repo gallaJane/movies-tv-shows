@@ -39,6 +39,7 @@ export class SearchComponent implements OnInit {
   page!: 1;
   query!: string;
   sort!: number;
+  
 
   constructor(private router: Router,
     private http: HttpClient,
@@ -78,11 +79,10 @@ export class SearchComponent implements OnInit {
           debugger;
           this.searches = res;
           this.movies = res['results'];
-          console.log(this.movies);
           this.total_results = res['total_results'];
           this.total_pages = res['total_pages'];
           this.page = res['page'];
-          this.searchService.sendMessage(this.movies);
+          // this.searchService.sendMessage(this.movies);
           this.search(query);
       
         },
@@ -92,7 +92,9 @@ export class SearchComponent implements OnInit {
 
   search(query: string) {
     if (/\S/.test(query)) {
-      this.router.navigate(['/search', query]);
+      // this.location.replaceState(`/saarch/${query}`);
+
+     this.router.navigate(['/search', query]);
     }
   }
 
