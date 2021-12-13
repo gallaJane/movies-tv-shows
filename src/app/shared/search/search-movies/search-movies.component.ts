@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SearchService } from './../search.service';
-import { MovieService } from '../../../movie/movie.service';
 import { Movie } from '../../../shared/movie';
 import { Subscription } from 'rxjs';
 import { Observable } from 'rxjs';
@@ -15,7 +14,7 @@ import { Observable } from 'rxjs';
 export class SearchMoviesComponent implements OnInit {
   page!: number;
   query!: string;
-  movies!: Movie[];
+  movies!: any;
 
   subscription!: Subscription;
 
@@ -23,8 +22,6 @@ export class SearchMoviesComponent implements OnInit {
 
 
   constructor(
-    private searchService: SearchService,
-    private moviesService: MovieService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -32,21 +29,25 @@ export class SearchMoviesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.subscription =this.searchService.receievedMessage()
-    .subscribe(
-      (some: any) => {
-        this.movies = some;
-        console.log('Value is ' + this.movies);
-         this.route.params.subscribe(
-           (params: any) => {
-             this.query = params['query'];
-             this.page = 1;
-           });
-      },
-      (error: any) => {
-        console.log(error);
-      }
-    );
+    localStorage.getItem('movies');
+    var moviesArray  = localStorage.getItem('movies');
+    if (moviesArray !== null && typeof moviesArray === "string") {
+      this.movies = JSON.parse(moviesArray);   // deserializing here
+  }
+    // this.subscription =this.searchService.receievedMessage().subscribe(
+    //   (some: any) => {
+    //     console.log('Value is ' + some);
+    //   },
+    //   (error: any) => {
+    //     console.log(error);
+    //   }
+    // );
+
+    this.route.params.subscribe(
+      (params: any) => {
+        this.query = params['query'];
+        this.page = 1;
+      });
 
 
 

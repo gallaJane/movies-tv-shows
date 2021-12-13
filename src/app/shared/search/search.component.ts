@@ -45,7 +45,6 @@ export class SearchComponent implements OnInit {
     private http: HttpClient,
     private searchService: SearchService,
     private location: Location) {
-    console.log(this.searchTerm);
   }
 
   ngOnInit() {
@@ -82,7 +81,8 @@ export class SearchComponent implements OnInit {
           this.total_results = res['total_results'];
           this.total_pages = res['total_pages'];
           this.page = res['page'];
-          // this.searchService.sendMessage(this.movies);
+          this.searchService.sendMessage(this.movies);
+          localStorage.setItem("movies", JSON.stringify(this.movies));
           this.search(query);
       
         },
